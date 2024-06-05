@@ -1,0 +1,28 @@
+<h2>Adicionar Conta a Pagar</h2>
+<form (ngSubmit)="addBill()" #billForm="ngForm">
+  <label for="nome">Nome:</label>
+  <input id="nome" [(ngModel)]="bill.nome" name="nome" required>
+  <div *ngIf="billForm.submitted && !billForm.controls['nome'].valid" class="error-message">
+    Nome é obrigatório.
+  </div>
+
+  <label for="valorOriginal">Valor Original:</label>
+  <input id="valorOriginal" [(ngModel)]="bill.valorOriginal" name="valorOriginal" type="number" required min="0">
+  <div *ngIf="billForm.submitted && !billForm.controls['valorOriginal'].valid" class="error-message">
+    Valor Original é obrigatório.
+  </div>
+
+  <label for="dataVencimento">Data de Vencimento:</label>
+  <input id="dataVencimento" [(ngModel)]="bill.dataVencimento" name="dataVencimento" type="date" required>
+  <div *ngIf="billForm.submitted && !billForm.controls['dataVencimento'].valid" class="error-message">
+    Data de Vencimento é obrigatória.
+  </div>
+
+  <label for="dataPagamento">Data de Pagamento:</label>
+  <input id="dataPagamento" [(ngModel)]="bill.dataPagamento" name="dataPagamento" type="date" required>
+  <div *ngIf="billForm.submitted && !billForm.controls['dataPagamento'].valid" class="error-message">
+    Data de Pagamento é obrigatória.
+  </div>
+
+  <button type="submit">Adicionar</button>
+</form>

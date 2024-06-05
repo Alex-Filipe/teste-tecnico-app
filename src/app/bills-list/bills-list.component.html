@@ -1,0 +1,21 @@
+<h2>Contas a Pagar</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Conta</th>
+      <th>Valor Original</th>
+      <th>Valor Corrigido</th>
+      <th>Quantidade Dias Atraso</th>
+      <th>Data Pagamento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bill of bills">
+      <td>{{ bill.nome }}</td>
+      <td>R$ {{ bill.valorOriginal | number:'1.2-2' }}</td>
+      <td>R$ {{ bill.valorCorrigido | number:'1.2-2' }}</td>
+      <td>{{ bill.quantidadeDiasAtraso }}</td>
+      <td>{{ bill.dataPagamento | date:'dd-MM-yyyy' }}</td>
+    </tr>
+  </tbody>
+</table>
