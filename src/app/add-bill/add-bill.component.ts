@@ -34,14 +34,20 @@ export class AddBillComponent {
       },
       error => {
         let errorMessage = '';
-        if (error.error.errors.Nome) {
+        if (error.error.errors && error.error.errors.Nome) {
           errorMessage += 'Nome: ' + error.error.errors.Nome[0] + '\n';
         }
-        if (error.error.errors.DataVencimento) {
+        if (error.error.errors && error.error.errors.ValorOriginal) {
+          errorMessage += 'Nome: ' + error.error.errors.ValorOriginal[0] + '\n';
+        }
+        if (error.error.errors && error.error.errors.DataVencimento) {
           errorMessage += 'Data de Vencimento: ' + error.error.errors.DataVencimento[0] + '\n';
         }
-        if (error.error.errors.DataPagamento) {
+        if (error.error.errors && error.error.errors.DataPagamento) {
           errorMessage += 'Data de Pagamento: ' + error.error.errors.DataPagamento[0] + '\n';
+        }
+        if (error.error && error.error.message) {
+          errorMessage += error.error.message;
         }
         alert(errorMessage);
       }
